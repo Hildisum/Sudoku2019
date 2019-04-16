@@ -39,6 +39,7 @@ namespace Sudoku
         }
         static bool ChiffreValide (int a)
         {
+ // TODO : Virer le boléen, returner false ou true directement
             bool Valide = false;
 
             if (a > 0 || a < 9)
@@ -60,6 +61,7 @@ namespace Sudoku
         }
         static void TraduireCoordonnees (int bloc, out int ligne, out int colonne)
         {
+// TODO : Ligne toujours 0 a partir de là puis col 0, 3, 6
             if (bloc == 0)
             {
                 ligne = 0;
@@ -75,6 +77,7 @@ namespace Sudoku
                 ligne = 0;
                 colonne = 6;
             }
+// TODO : Ligne toujours 3 a partir de là puis col 0, 3, 6
             else if (bloc == 3)
             {
                 ligne = 3;
@@ -90,6 +93,7 @@ namespace Sudoku
                 ligne = 3;
                 colonne = 6;
             }
+// TODO : Ligne toujours 6 a partir de là puis col 0, 3, 6
             else if (bloc == 6)
             {
                 ligne = 6;
@@ -105,6 +109,7 @@ namespace Sudoku
                 ligne = 6;
                 colonne = 6;
             }
+// TODO : Ligne, 0, 3, 6 puis col 0, 3, 6 ? Probablement un moyen de les grouper par 3 facilement, 0, 3, 6 se répète toujours, optimisation possible, réfléchir à un meilleur algo
         }
         static List<int> LigneVersListe(int [,] tab, int ligne)
         {
@@ -117,7 +122,6 @@ namespace Sudoku
             return LigneListe;
         }
         static List<int> ColonneVersListe(int [,] tab, int colonne)
-
         {
             List<int> ColonneListe = new List<int>();
 
@@ -144,6 +148,8 @@ namespace Sudoku
         }
         static bool ListeCorrecte (List<int> listeRecue)
         {
+
+// TODO : Refactorer en virant ATester (tu peux return true / false directement) >
             bool ATester = false;
             int ValeurCorrect = 45;
 
@@ -162,6 +168,7 @@ namespace Sudoku
             while (compteur < 9 && GrilleOk == true)
             {
                 GrilleOk = ListeCorrecte(BlocVersListe(tab, bloc));
+// TODO : if (!GrilleOk) à tester
                 if (GrilleOk == false)
                 {
                     break;
@@ -209,7 +216,7 @@ namespace Sudoku
             bool ResultGrille = VerifierGrille(Grille);
 
             // 13 : Vérifier toutes les grilles 1 à 20
-
+// TODO : Boucles à faire ici >
             // Grilles correctes 
             ResultGrille = VerifierGrille(Grille = ChargerGrille(1));
             ResultGrille = VerifierGrille(Grille = ChargerGrille(2));
