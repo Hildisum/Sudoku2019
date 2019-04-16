@@ -39,7 +39,7 @@ namespace Sudoku
         }
         static bool ChiffreValide (int a)
         {
- // TODO : Virer le boléen, returner false ou true directement  DONE
+ // DONE
 
             if (a > 0 || a < 9)
             {
@@ -63,7 +63,7 @@ namespace Sudoku
             ligne = 3 * (bloc / 3);
             colonne = (bloc % 3) * 3;
         }
-// TODO : Ligne, 0, 3, 6 puis col 0, 3, 6 ? Probablement un moyen de les grouper par 3 facilement, 0, 3, 6 se répète toujours, optimisation possible, réfléchir à un meilleur algo
+// DONE
         static List<int> LigneVersListe(int [,] tab, int ligne)
         {
             List<int> LigneListe = new List<int>();
@@ -102,7 +102,7 @@ namespace Sudoku
         static bool ListeCorrecte (List<int> listeRecue)
         {
 
-// TODO : Refactorer en virant ATester (tu peux return true / false directement) > DONE
+// DONE
             int ValeurCorrect = 45;
 
             if (listeRecue.Count == 9 && listeRecue.Sum() == ValeurCorrect)
@@ -120,7 +120,7 @@ namespace Sudoku
             while (compteur < 9 && GrilleOk == true)
             {
                 GrilleOk = ListeCorrecte(BlocVersListe(tab, bloc));
-// TODO : if (!GrilleOk) à tester DONE
+// DONE
                 if (!GrilleOk)
                 {
                     break;
@@ -168,8 +168,7 @@ namespace Sudoku
             bool ResultGrille = VerifierGrille(Grille);
 
             // 13 : Vérifier toutes les grilles 1 à 20
-            // TODO : Boucles à faire ici > DONE.
-            // Grilles correctes 
+            // DONE
 
             int NbreTest = 0;
             while (NbreTest <=20)
