@@ -39,14 +39,13 @@ namespace Sudoku
         }
         static bool ChiffreValide (int a)
         {
- // TODO : Virer le boléen, returner false ou true directement
-            bool Valide = false;
+ // TODO : Virer le boléen, returner false ou true directement  DONE
 
             if (a > 0 || a < 9)
             {
-                Valide = true;
+                return true;
             }
-            return Valide;
+            return false;
         }
         static void Afficher (int [,] tab)
         {
@@ -61,56 +60,10 @@ namespace Sudoku
         }
         static void TraduireCoordonnees (int bloc, out int ligne, out int colonne)
         {
-// TODO : Ligne toujours 0 a partir de là puis col 0, 3, 6
-            if (bloc == 0)
-            {
-                ligne = 0;
-                colonne = 0;
-            }
-            else if (bloc == 1)
-            {
-                ligne = 0;
-                colonne = 3;
-            }
-            else if (bloc == 2)
-            {
-                ligne = 0;
-                colonne = 6;
-            }
-// TODO : Ligne toujours 3 a partir de là puis col 0, 3, 6
-            else if (bloc == 3)
-            {
-                ligne = 3;
-                colonne = 0;
-            }
-            else if (bloc == 4)
-            {
-                ligne = 3;
-                colonne = 3;
-            }
-            else if (bloc == 5)
-            {
-                ligne = 3;
-                colonne = 6;
-            }
-// TODO : Ligne toujours 6 a partir de là puis col 0, 3, 6
-            else if (bloc == 6)
-            {
-                ligne = 6;
-                colonne = 0;
-            }
-            else if (bloc == 7)
-            {
-                ligne = 6;
-                colonne = 3;
-            }
-            else
-            {
-                ligne = 6;
-                colonne = 6;
-            }
-// TODO : Ligne, 0, 3, 6 puis col 0, 3, 6 ? Probablement un moyen de les grouper par 3 facilement, 0, 3, 6 se répète toujours, optimisation possible, réfléchir à un meilleur algo
+            ligne = 3 * (bloc / 3);
+            colonne = (bloc % 3) * 3;
         }
+// TODO : Ligne, 0, 3, 6 puis col 0, 3, 6 ? Probablement un moyen de les grouper par 3 facilement, 0, 3, 6 se répète toujours, optimisation possible, réfléchir à un meilleur algo
         static List<int> LigneVersListe(int [,] tab, int ligne)
         {
             List<int> LigneListe = new List<int>();
@@ -149,15 +102,14 @@ namespace Sudoku
         static bool ListeCorrecte (List<int> listeRecue)
         {
 
-// TODO : Refactorer en virant ATester (tu peux return true / false directement) >
-            bool ATester = false;
+// TODO : Refactorer en virant ATester (tu peux return true / false directement) > DONE
             int ValeurCorrect = 45;
 
             if (listeRecue.Count == 9 && listeRecue.Sum() == ValeurCorrect)
             {
-                ATester = true;
+                return true;
             }
-            return ATester;
+            return false;
         }
         static bool VerifierGrille(int [,] tab)
         {
@@ -168,8 +120,8 @@ namespace Sudoku
             while (compteur < 9 && GrilleOk == true)
             {
                 GrilleOk = ListeCorrecte(BlocVersListe(tab, bloc));
-// TODO : if (!GrilleOk) à tester
-                if (GrilleOk == false)
+// TODO : if (!GrilleOk) à tester DONE
+                if (!GrilleOk)
                 {
                     break;
                 }
@@ -216,31 +168,14 @@ namespace Sudoku
             bool ResultGrille = VerifierGrille(Grille);
 
             // 13 : Vérifier toutes les grilles 1 à 20
-// TODO : Boucles à faire ici >
+            // TODO : Boucles à faire ici > DONE.
             // Grilles correctes 
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(1));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(2));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(3));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(4));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(5));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(6));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(7));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(8));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(9));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(10));
 
-            // Grilles incorrectes 
-
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(11));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(12));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(13));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(14));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(15));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(16));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(17));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(18));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(19));
-            ResultGrille = VerifierGrille(Grille = ChargerGrille(20));
+            int NbreTest = 0;
+            while (NbreTest <=20)
+            {
+                ResultGrille = VerifierGrille(Grille = ChargerGrille(NbreTest));
+            }
         }
     }
 }
