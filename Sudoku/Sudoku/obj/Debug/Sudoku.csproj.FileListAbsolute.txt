@@ -1,0 +1,7 @@
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\bin\Debug\Sudoku.exe.config
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\bin\Debug\Sudoku.exe
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\bin\Debug\Sudoku.pdb
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\obj\Debug\Sudoku.csprojResolveAssemblyReference.cache
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.CoreCompileInputs.cache
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\obj\Debug\Sudoku.exe
+C:\Users\Goraz\Documents\C#2019\Sudoku2019\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
